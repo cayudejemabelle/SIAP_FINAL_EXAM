@@ -1,0 +1,399 @@
+/* --- 0. Global Resets and Variables --- */
+:root {
+    --color-primary: #007bff; /* Bright Blue for emphasis */
+    --color-secondary: #6c757d; /* Grey/Darker for secondary actions */
+    --color-text: #333; /* Dark text */
+    --color-text-light: #555;
+    --color-background: #f4f7f6; /* Light background */
+    --color-card-bg: #ffffff; /* White card background */
+    --color-dark: #212529; /* Dark footer/header background */
+    --font-family: 'Poppins', sans-serif;
+    --spacing-lg: 4rem;
+    --spacing-md: 2rem;
+    --spacing-sm: 1rem;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.15); 
+
+    /* New specific colors for project minimal borders */
+    --color-group-accent: #ffc107; /* Yellow for Group */
+    --color-figma-accent: #6f42c1; /* Purple for Figma */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.section {
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+
+/* --- 1. Header and Navigation --- */
+.header {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.nav a {
+    margin-left: var(--spacing-md);
+    font-weight: 600;
+    color: var(--color-text-light);
+    transition: color 0.3s ease; 
+}
+
+.nav a:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- Buttons (CTAs) --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease; 
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-card-bg);
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 0.75rem 1.45rem;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-card-bg);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin: 0.5rem;
+}
+
+
+/* --- 2. Hero Section & Animations --- */
+.hero-section {
+    padding: 8rem 0;
+    text-align: center;
+    background-color: var(--color-card-bg);
+}
+
+.greeting {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.name-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+    animation: fadeInDown 1s ease-out;
+}
+
+.role-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.tagline {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg) auto;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* --- 4. About Section --- */
+.about-section {
+    background-color: var(--color-card-bg);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md) auto;
+    font-size: 1.05rem;
+}
+
+.about-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+
+/* --- 5. Projects Section (MINIMALIST OUTLINE STYLES) --- */
+.projects-section {
+    background-color: var(--color-background);
+}
+
+.project-list-minimal {
+    display: grid;
+    /* Allows for four items to be displayed in a 2x2 grid on wider screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-item {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border-left: 5px solid var(--color-secondary); /* Default border */
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Category Specific Colors */
+.minimal-individual { border-color: var(--color-primary); }
+.minimal-group { border-color: var(--color-group-accent); }
+.minimal-figma { border-color: var(--color-figma-accent); }
+
+
+.minimal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.25rem;
+}
+
+.minimal-type {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.minimal-tech {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.minimal-tech span {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.minimal-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.minimal-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.minimal-link-demo {
+    background-color: var(--color-primary);
+    color: var(--color-card-bg);
+    /* Ensure the single button looks prominent */
+    min-width: 120px; 
+}
+
+.minimal-link-demo:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- 6. Skills Section --- */
+.skills-section {
+    background-color: var(--color-card-bg);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.skill-category {
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease; 
+    border-top: 3px solid var(--color-primary);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-category h3 {
+    font-size: 1.25rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    padding-bottom: 0.25rem;
+}
+
+.skill-category p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+
+/* --- 7. Contact Section --- */
+.contact-section {
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+.contact-section p {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg) auto;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* --- 8. Footer --- */
+.footer {
+    background-color: var(--color-dark);
+    color: #bbb;
+    text-align: center;
+    padding: var(--spacing-md) 0;
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+    }
+
+    .nav {
+        margin-top: var(--spacing-sm);
+    }
+
+    .nav a:not(.btn) {
+        margin: 0 0.5rem;
+    }
+
+    .nav .btn-primary {
+        margin-left: 1rem;
+    }
+
+    .name-title {
+        font-size: 3rem;
+    }
+
+    .role-title {
+        font-size: 1.5rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+    }
+
+    .contact-links .btn-lg {
+        margin: 0.5rem 0;
+    }
+}
